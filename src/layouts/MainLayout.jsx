@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
@@ -12,6 +13,7 @@ const NAV_ITEMS = [
 export default function MainLayout() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const handleLogout = () => {
     logout()
@@ -21,7 +23,18 @@ export default function MainLayout() {
 
   return (
     <div className="flex min-h-screen bg-slate-100 dark:bg-slate-950">
-      <aside className="flex w-64 flex-col justify-between bg-slate-900 text-slate-100">
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      <aside
+        className={`fixed inset-y-0 left-0 z-40 flex w-64 flex-col justify-between bg-slate-900 text-slate-100 transition-transform duration-200 lg:static lg:translate-x-0 ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
         <div>
           <div className="flex items-center justify-between gap-2 px-6 py-6 text-lg font-bold">
             <span className="flex items-center gap-2">
@@ -35,6 +48,7 @@ export default function MainLayout() {
               <NavLink
                 key={item.to}
                 to={item.to}
+                onClick={() => setSidebarOpen(false)}
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
                     isActive
@@ -64,9 +78,25 @@ export default function MainLayout() {
         </div>
       </aside>
 
-      <main className="flex-1 overflow-y-auto p-8 dark:text-slate-100">
-        <Outlet />
-      </main>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <header className="flex items-center gap-3 border-b border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Abrir menú"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 text-slate-600 dark:border-slate-700 dark:text-slate-300"
+          >
+            ☰
+          </button>
+          <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            CASSA Agrícola
+          </span>
+        </header>
+
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 dark:text-slate-100 sm:p-6 lg:p-8">
+          <Outlet />
+        </main>
+      </div>
     </div>
   )
 }

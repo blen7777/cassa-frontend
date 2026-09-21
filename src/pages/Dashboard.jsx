@@ -69,7 +69,7 @@ export default function Dashboard() {
           Lotes y hectáreas cultivadas por cada hacienda registrada.
         </p>
 
-        <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
           {overviewLoading ? (
             <Spinner label="Cargando detalle..." />
           ) : overview.length === 0 ? (
