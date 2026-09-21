@@ -42,6 +42,12 @@ mostrar/ocultar contraseña (ícono de ojo) en el input de password.
 - Pantalla por defecto tras login.
 - 3 cards: Haciendas activas, Lotes activos, Responsables activos, con datos reales del backend.
 
+**Agregado (esencial, no en el enunciado):** tabla "Detalle por hacienda"
+debajo de las cards (hacienda, ubicación, estatus, lotes activos/total,
+hectáreas totales), consumiendo `/api/dashboard/haciendas-overview`. Clic en
+una fila navega a `/haciendas/:id/lotes` — da contexto accionable más allá
+de los 3 contadores.
+
 ## HU4 — Gestión de Responsables (CRUD) (15 pts, frontend + backend)
 
 - Listado, crear, editar, eliminar. Campo `estatus` (Activo/Inactivo).

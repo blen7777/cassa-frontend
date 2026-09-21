@@ -11,6 +11,7 @@ Estado respecto a [`requirements.md`](./requirements.md).
 - [x] `cursor-pointer` global en botones/links/filas accionables — HU2
 - [x] Modo claro/oscuro (`ThemeContext`, `ThemeToggle`, persistido en localStorage) — HU2
 - [x] `Dashboard` con 3 cards conectadas a `/api/dashboard/summary` — HU3
+- [x] Tabla "Detalle por hacienda" (lotes/hectáreas) vía `/api/dashboard/haciendas-overview` — HU3
 - [x] CRUD `Responsables` (listar/crear/editar/eliminar + estatus) — HU4
 - [x] CRUD `Haciendas` + navegación a `/haciendas/:id/lotes` — HU5
 - [x] CRUD `Lotes` filtrado por hacienda (vía `useParams`) — HU6
