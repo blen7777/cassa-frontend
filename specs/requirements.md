@@ -13,6 +13,16 @@ Stack: React + Vite. Repo separado del backend (Laravel).
 - Todas las rutas internas protegidas; sin sesión activa → redirigir a `/login`.
 - Evaluado: route guards, estado global (Context/Zustand/Redux), limpieza de estado en logout.
 
+**Fuera de alcance (decisión explícita, no ambigüedad):** token refresh, rate
+limiting y seguridad de password (hash/salt/políticas) **no aplican** — el
+enunciado indica textualmente "No es necesario conectar el login a la base de
+datos ni implementar JWT real". No hay backend de auth ni password
+persistido que proteger. Si en el futuro se reemplaza el login estático por
+uno real contra BD, estos puntos deben re-evaluarse aquí antes de implementarse.
+
+**Sí agregado (bajo costo, mejora UX/UI del rubro transversal):** toggle de
+mostrar/ocultar contraseña (ícono de ojo) en el input de password.
+
 ## HU2 — Estructura Base y Navegación (10 pts)
 
 - Layout principal que envuelve las vistas protegidas.

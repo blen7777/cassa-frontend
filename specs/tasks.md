@@ -4,6 +4,8 @@ Estado respecto a [`requirements.md`](./requirements.md).
 
 - [x] `AuthContext` + credenciales estáticas + limpieza en logout — HU1
 - [x] `ProtectedRoute` (route guard) — HU1
+- [x] Toggle mostrar/ocultar password (ícono de ojo) — HU1
+- [x] Decisión documentada: token refresh, rate limit y hash de password fuera de alcance (ver `requirements.md`) — HU1
 - [x] `MainLayout` con sidebar y logout — HU2
 - [x] Enrutamiento con React Router (`App.jsx`) — HU2
 - [x] `Dashboard` con 3 cards conectadas a `/api/dashboard/summary` — HU3

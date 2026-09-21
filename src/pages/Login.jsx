@@ -9,6 +9,7 @@ export default function Login() {
   const location = useLocation()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -64,16 +65,27 @@ export default function Login() {
             <label htmlFor="password" className="mb-1 block text-sm font-medium text-slate-700">
               Contraseña
             </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200"
-              placeholder="••••••••"
-              autoComplete="current-password"
-              required
-            />
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 pr-10 text-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+                placeholder="••••••••"
+                autoComplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 hover:text-slate-600"
+                aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                tabIndex={-1}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
           </div>
 
           {error && (
