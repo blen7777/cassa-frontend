@@ -30,6 +30,13 @@ mostrar/ocultar contraseña (ícono de ojo) en el input de password.
 - Botón visible de cierre de sesión.
 - Evaluado: componentes compartidos (Layout), uso de React Router.
 
+**Mejoras agregadas (fuera del enunciado, entran en "Buena UX" transversal):**
+- `cursor: pointer` explícito en todos los elementos accionables (botones, links, filas clicables).
+- Modo claro/oscuro con toggle persistente (`localStorage`), detecta preferencia
+  del sistema (`prefers-color-scheme`) como valor inicial. Implementado con
+  `ThemeContext` + variante `dark:` de Tailwind (estrategia por clase, no por
+  media query, para permitir el override manual).
+
 ## HU3 — Dashboard Principal (Resumen) (15 pts, frontend + backend)
 
 - Pantalla por defecto tras login.

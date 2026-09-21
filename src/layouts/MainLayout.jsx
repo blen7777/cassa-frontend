@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
+import ThemeToggle from '../components/ThemeToggle'
 
 const NAV_ITEMS = [
   { to: '/dashboard', label: 'Dashboard', icon: '📊' },
@@ -19,12 +20,15 @@ export default function MainLayout() {
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-100">
+    <div className="flex min-h-screen bg-slate-100 dark:bg-slate-950">
       <aside className="flex w-64 flex-col justify-between bg-slate-900 text-slate-100">
         <div>
-          <div className="flex items-center gap-2 px-6 py-6 text-lg font-bold">
-            <span>🌱</span>
-            <span>CASSA Agrícola</span>
+          <div className="flex items-center justify-between gap-2 px-6 py-6 text-lg font-bold">
+            <span className="flex items-center gap-2">
+              <span>🌱</span>
+              <span>CASSA Agrícola</span>
+            </span>
+            <ThemeToggle className="!border-slate-700 !text-slate-300 hover:!bg-slate-800" />
           </div>
           <nav className="mt-4 flex flex-col gap-1 px-3">
             {NAV_ITEMS.map((item) => (
@@ -60,7 +64,7 @@ export default function MainLayout() {
         </div>
       </aside>
 
-      <main className="flex-1 overflow-y-auto p-8">
+      <main className="flex-1 overflow-y-auto p-8 dark:text-slate-100">
         <Outlet />
       </main>
     </div>

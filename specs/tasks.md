@@ -8,6 +8,8 @@ Estado respecto a [`requirements.md`](./requirements.md).
 - [x] Decisión documentada: token refresh, rate limit y hash de password fuera de alcance (ver `requirements.md`) — HU1
 - [x] `MainLayout` con sidebar y logout — HU2
 - [x] Enrutamiento con React Router (`App.jsx`) — HU2
+- [x] `cursor-pointer` global en botones/links/filas accionables — HU2
+- [x] Modo claro/oscuro (`ThemeContext`, `ThemeToggle`, persistido en localStorage) — HU2
 - [x] `Dashboard` con 3 cards conectadas a `/api/dashboard/summary` — HU3
 - [x] CRUD `Responsables` (listar/crear/editar/eliminar + estatus) — HU4
 - [x] CRUD `Haciendas` + navegación a `/haciendas/:id/lotes` — HU5

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Login() {
   const { login } = useAuth()
@@ -34,14 +35,15 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-emerald-700 via-emerald-600 to-lime-600 px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-emerald-700 via-emerald-600 to-lime-600 px-4 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-950">
+      <ThemeToggle className="absolute right-4 top-4 !border-white/40 !text-white hover:!bg-white/10" />
+      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl dark:bg-slate-900 dark:shadow-black/40">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">
+          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-2xl dark:bg-emerald-500/15">
             🌱
           </div>
-          <h1 className="text-2xl font-bold text-slate-900">CASSA Agrícola</h1>
-          <p className="mt-1 text-sm text-slate-500">Ingresa tus credenciales para continuar</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">CASSA Agrícola</h1>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Ingresa tus credenciales para continuar</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">

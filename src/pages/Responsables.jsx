@@ -89,8 +89,8 @@ export default function Responsables() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Responsables</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Responsables</h1>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Catálogo del personal a cargo de las operaciones.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function Responsables() {
         </button>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
         {loading ? (
           <Spinner />
         ) : responsables.length === 0 ? (
@@ -112,7 +112,7 @@ export default function Responsables() {
           </div>
         ) : (
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 text-xs uppercase text-slate-500">
+            <thead className="bg-slate-50 text-xs uppercase text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
               <tr>
                 <th className="px-6 py-3">Nombre</th>
                 <th className="px-6 py-3">Correo</th>
@@ -121,14 +121,14 @@ export default function Responsables() {
                 <th className="px-6 py-3 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {responsables.map((responsable) => (
-                <tr key={responsable.id} className="hover:bg-slate-50">
-                  <td className="px-6 py-4 font-medium text-slate-900">
+                <tr key={responsable.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/60">
+                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-slate-100">
                     {responsable.nombre} {responsable.apellido}
                   </td>
-                  <td className="px-6 py-4 text-slate-600">{responsable.correo || '—'}</td>
-                  <td className="px-6 py-4 text-slate-600">{responsable.telefono || '—'}</td>
+                  <td className="px-6 py-4 text-slate-600 dark:text-slate-400">{responsable.correo || '—'}</td>
+                  <td className="px-6 py-4 text-slate-600 dark:text-slate-400">{responsable.telefono || '—'}</td>
                   <td className="px-6 py-4">
                     <StatusBadge active={responsable.estatus} />
                   </td>

@@ -94,16 +94,16 @@ export default function Lotes() {
 
   return (
     <div>
-      <Link to="/haciendas" className="text-sm font-medium text-emerald-700 hover:underline">
+      <Link to="/haciendas" className="text-sm font-medium text-emerald-700 hover:underline dark:text-emerald-400">
         ← Volver a Haciendas
       </Link>
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
             Lotes {hacienda ? `· ${hacienda.nombre}` : ''}
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Divisiones de tierra correspondientes a esta hacienda.
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function Lotes() {
         </button>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
         {loading ? (
           <Spinner />
         ) : lotes.length === 0 ? (
@@ -125,7 +125,7 @@ export default function Lotes() {
           </div>
         ) : (
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 text-xs uppercase text-slate-500">
+            <thead className="bg-slate-50 text-xs uppercase text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
               <tr>
                 <th className="px-6 py-3">Nombre</th>
                 <th className="px-6 py-3">Hectáreas</th>
@@ -133,11 +133,11 @@ export default function Lotes() {
                 <th className="px-6 py-3 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {lotes.map((lote) => (
-                <tr key={lote.id} className="hover:bg-slate-50">
-                  <td className="px-6 py-4 font-medium text-slate-900">{lote.nombre}</td>
-                  <td className="px-6 py-4 text-slate-600">{lote.hectareas ?? '—'}</td>
+                <tr key={lote.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/60">
+                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-slate-100">{lote.nombre}</td>
+                  <td className="px-6 py-4 text-slate-600 dark:text-slate-400">{lote.hectareas ?? '—'}</td>
                   <td className="px-6 py-4">
                     <StatusBadge active={lote.estatus} />
                   </td>

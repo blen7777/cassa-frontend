@@ -23,8 +23,8 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-      <p className="mt-1 text-sm text-slate-500">
+      <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Dashboard</h1>
+      <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
         Panorama general de la operación agrícola.
       </p>
 
@@ -35,13 +35,13 @@ export default function Dashboard() {
           {CARDS.map((card) => (
             <div
               key={card.key}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
             >
               <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl text-xl ${card.color}`}>
                 {card.icon}
               </div>
-              <p className="text-sm font-medium text-slate-500">{card.label}</p>
-              <p className="mt-1 text-3xl font-bold text-slate-900">
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{card.label}</p>
+              <p className="mt-1 text-3xl font-bold text-slate-900 dark:text-slate-100">
                 {summary?.[card.key] ?? 0}
               </p>
             </div>
