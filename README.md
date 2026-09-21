@@ -1,10 +1,17 @@
 # CASSA Agrícola — Frontend (React + Vite)
 
-Aplicación web para la prueba técnica full-stack agrícola.
+Aplicación web para la prueba técnica full-stack agrícola: login, dashboard,
+y CRUD de haciendas, lotes y responsables. Repo hermano del backend:
+[`cassa-backend`](https://github.com/blen7777/cassa-backend) (Laravel).
 
 > **Spec-driven development:** todo cambio futuro debe partir de lo documentado
 > en [`specs/`](./specs/requirements.md) (requerimientos, diseño técnico y
 > tareas). Si un cambio no está reflejado ahí, actualizar los specs primero.
+
+## Requisitos
+
+- Node.js 18+ y npm
+- Backend (`cassa-backend`) corriendo en `http://127.0.0.1:8000`
 
 ## Puesta en marcha
 
@@ -25,10 +32,24 @@ Usuario:    devcassa
 Contraseña: cassa123
 ```
 
-## Estructura
+## Estructura del proyecto
 
-- `src/context/AuthContext.jsx` — autenticación estática y sesión (sessionStorage).
-- `src/routes/ProtectedRoute.jsx` — guarda de rutas, redirige a `/login`.
-- `src/layouts/MainLayout.jsx` — layout con sidebar y logout.
-- `src/pages/` — Login, Dashboard, Haciendas, Responsables, Lotes.
-- `src/components/` — Modal, ConfirmModal, Spinner, EmptyState, StatusBadge.
+```
+frontend/
+├── src/
+│   ├── api/client.js          # axios, baseURL "/api" (proxy de Vite)
+│   ├── context/
+│   │   ├── AuthContext.jsx    # login estático + sesión (sessionStorage)
+│   │   └── ThemeContext.jsx   # modo claro/oscuro (localStorage)
+│   ├── routes/ProtectedRoute.jsx  # guarda de rutas → /login
+│   ├── layouts/MainLayout.jsx     # sidebar + logout + toggle de tema
+│   ├── pages/                     # Login, Dashboard, Haciendas, Responsables, Lotes
+│   └── components/                # Modal, ConfirmModal, Spinner, EmptyState,
+│                                   # StatusBadge, ThemeToggle
+├── specs/                     # Requerimientos, diseño y tareas (spec-driven dev)
+│   ├── requirements.md
+│   ├── design.md
+│   ├── tasks.md
+│   └── requirements/prueba-tecnica-fullstack.pdf
+└── vite.config.js             # proxy /api → backend, alias "@" → src/
+```
